@@ -56,15 +56,6 @@ window.addEventListener('load', function(){
             this.weight = 1;
         }
         draw(context){
-            // context.strokeStyle = 'white';
-            // context.strokeRect(this.x, this.y, this. width, this.height);
-            // context.beginPath();
-            // context.arc(this.x + this.width/2, this.y + this.height/2, this.width/2, 0, Math.PI * 2)
-            // context.stroke();
-            // context.strokeStyle = 'blue'
-            // context.beginPath();
-            // context.arc(this.x, this.y, this.width/2, 0, Math.PI * 2)
-            // context.stroke();
             context.drawImage(this.image, this.frameX * this.width, this.frameY * this.height, this.width, this.height, this.x, this.y, this.width, this.height)
         }
         update(input, deltaTime, enemies){
@@ -156,15 +147,6 @@ window.addEventListener('load', function(){
             this.markedForDeletion = false;
         }
         draw(context){
-            // context.strokeStyle = 'white'
-            // context.strokeRect(this.x, this.y, this. width, this.height);
-            // context.beginPath();
-            // context.arc(this.x + this.width/2, this.y + this.height/2, this.width/2, 0, Math.PI * 2)
-            // context.stroke();
-            // context.strokeStyle = 'blue'
-            // context.beginPath();
-            // context.arc(this.x, this.y, this.width/2, 0, Math.PI * 2)
-            // context.stroke();
             context.drawImage(this.image, this.frameX * this.width, 0, this.width, this.height, this.x, this.y, this.width, this.height)
         }
         update(deltaTime){
@@ -201,17 +183,24 @@ window.addEventListener('load', function(){
     }
 
     function displayStatusText (context){
+        // description
+        context.font = '16px Helvetica';
+        context.fillStyle = 'black';
+        context.fillText('Description: Use the right, left, and up keys to move and jump over enemies. Try to jump over as many enemies as possible, dont touch them. Press F5 for restart.', 20, 50);
+        context.fillStyle = 'white';
+        context.fillText('Description: Use the right, left, and up keys to move and jump over enemies. Try to jump over as many enemies as possible, dont touch them. Press F5 for restart.', 22, 52);
+        // score
         context.font = '40px Helvetica';
         context.fillStyle = 'black';
-        context.fillText('Score: ' + score, 20, 50);
+        context.fillText('Score: ' + score, 20, 100);
         context.fillStyle = 'white';
-        context.fillText('Score: ' + score, 22, 52);
+        context.fillText('Score: ' + score, 22, 102);
         if (gameOver) {
             context.textAlign = 'center';
             context.fillStyle = 'black';
-            context.fillText('GAME OVER, try again!', canvas.width/2, 200);
+            context.fillText('GAME OVER, lets try again!', canvas.width/2, 200);
             context.fillStyle = 'white';
-            context.fillText('GAME OVER, try again!', canvas.width/2 + 2, 202);
+            context.fillText('GAME OVER, lets try again!', canvas.width/2 + 2, 202);
         }
     }
     
